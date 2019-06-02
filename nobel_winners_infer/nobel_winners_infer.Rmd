@@ -76,7 +76,7 @@ nobel_winners %>%
   )
 ```
 
-这里我们只关注物理学和和平奖这两大类的诺贝尔奖
+这里我们只关注物理学与和平奖这两大类的诺贝尔奖
 ```{r}
 df <- nobel_winners %>%
   mutate(award_age = prize_year - year(birth_date)) %>% 
@@ -142,7 +142,7 @@ showtext_auto()
 
 # 获奖年龄是否有差异
 
-我们的问题是， 获得诺贝尔物理学奖的人的平均年龄和获得和平奖的人的平均年龄，是否存在显著差异。
+我们的问题是，获得诺贝尔物理学奖的人的平均年龄和获得和平奖的人的平均年龄，是否存在显著差异。
 ```{r group-diffs}
 group_diffs <- df %>% 
   group_by(category) %>%
