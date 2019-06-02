@@ -29,18 +29,20 @@ knitr::opts_chunk$set(
 ```
 
 
-本比较包含了一个探索性分析，和四个假设检验的方法。方法来源于[<https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways/>]，用到的宏包
+本文比较包含了一个探索性分析，和四个假设检验的方法。方法来源于[<https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways/>]，用到的宏包
 
 ```{r}
 library(pacman)
-p_load(tidyverse, janitor, here, fs, infer, broom, lubridate, ggridges, brms, patchwork, showtext, ggstance)
+p_load(tidyverse, janitor, here, fs, infer, broom, 
+	   lubridate, ggridges, brms, patchwork, showtext, ggstance)
 ```
 
 # 导入数据
 
 这是2019年tidytuesday 的一个关于诺贝尔奖获得者的数据集
 ```{r message=FALSE, warning=FALSE}
-nobel_winners <- read_csv(here::here("nobel_winners_infer", "2019-05-14", "nobel_winners.csv"))
+nobel_winners <- 
+	read_csv(here::here("nobel_winners_infer", "2019-05-14", "nobel_winners.csv"))
 ```
 
 
