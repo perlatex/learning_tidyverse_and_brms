@@ -28,17 +28,19 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r, include=FALSE}
+
+本比较包含了一个探索性分析，和四个假设检验的方法。方法来源于[<https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways/>]，用到的宏包
+
+```{r}
 library(pacman)
 p_load(tidyverse, janitor, here, fs, infer, broom, lubridate, ggridges, brms, patchwork, showtext, ggstance)
 ```
-一个探索性分析，四个假设检验的方法。方法来源于[<https://www.andrewheiss.com/blog/2019/01/29/diff-means-half-dozen-ways/>]
 
 # 导入数据
 
 这是2019年tidytuesday 的一个关于诺贝尔奖获得者的数据集
 ```{r message=FALSE, warning=FALSE}
-nobel_winners <- read_csv(here::here("2019-05-14", "nobel_winners.csv"))
+nobel_winners <- read_csv(here::here("nobel_winners_infer", "2019-05-14", "nobel_winners.csv"))
 ```
 
 
@@ -138,8 +140,7 @@ showtext_auto()
 
 # 获奖年龄是否有差异
 
-我们的问题是， We are looking to see if a difference exists in the mean award_age 
- of the two levels of the explanatory variable.
+我们的问题是， 获得诺贝尔物理学奖的人的平均年龄和获得和平奖的人的平均年龄，是否存在显著差异。
 ```{r group-diffs}
 group_diffs <- df %>% 
   group_by(category) %>%
